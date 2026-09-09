@@ -7,13 +7,13 @@ provider "helm" {
   }
 }
 
-resource "helm_release" "external_secrets" {
+resource "helm_release" "kyverno" {
   name       = "kyverno"
   repository = "https://kyverno.github.io/kyverno"
   chart      = "kyverno"
   namespace  = "kyverno"
 
-  version = "YOUR_CHART_VERSION"
+  version = "3.9.0"   # Installs Kyverno 1.19.0
 
   create_namespace = true
 
@@ -23,25 +23,34 @@ resource "helm_release" "external_secrets" {
 
   values = [
     yamlencode({
-      installCRDs = true
+      admissionController = {
+        replicas = 1
 
-      rbac = {
-        create = true
+        serviceAccount = {
+          create = true
+
+          annotations = {
+            "eks.amazonaws.com/role-arn" = module.kyverno_irsa.role_arn
+          }
+        }
       }
 
-      serviceAccount = {
-        create = true
-        name   = "external-secrets"
+      backgroundController = {
+        replicas = 1
+      }
 
-        annotations = {
-          "eks.amazonaws.com/role-arn" = aws_iam_role.kyverno_ecr_role.arn
-        }
+      cleanupController = {
+        replicas = 1
+      }
+
+      reportsController = {
+        replicas = 1
       }
     })
   ]
 
   depends_on = [
     aws_iam_role.kyverno_ecr_role,
-    aws_iam_role_policy_attachment.kyverno_ecr_secrets_policy_attachment
+    aws_iam_role_policy_attachment.kyverno_ecr_policy_attachment
   ]
 }

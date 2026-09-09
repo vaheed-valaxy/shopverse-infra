@@ -24,7 +24,7 @@ resource "aws_iam_policy" "kyverno_ecr_policy" {
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchCheckLayerAvailability"
         ]
-        Resource = "arn:aws:ecr:us-east-1:${local.aws_account_id}:repository:/${var.project}/${var.env}/*"
+        Resource = "arn:aws:ecr:us-east-1:${local.aws_account_id}:repository:/shopverse/*"
         # Resource = "arn:aws:ssm:${var.region}:${local.aws_account_id}:parameter/${var.project}/${var.env}/*"
       }
 

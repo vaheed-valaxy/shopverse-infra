@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "eso_trust_policy" {
+data "aws_iam_policy_document" "kyverno_ecr_trust_policy" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     effect  = "Allow"
@@ -23,12 +23,12 @@ data "aws_iam_policy_document" "eso_trust_policy" {
   }
 }
 
-resource "aws_iam_role" "kyverno_role" {
-  name               = "${local.resource_name}-kyverno-role"
-  assume_role_policy = data.aws_iam_policy_document.eso_trust_policy.json
+resource "aws_iam_role" "kyverno_ecr_role" {
+  name               = "${local.resource_name}-kyverno-ecr-role"
+  assume_role_policy = data.aws_iam_policy_document.kyverno_ecr_trust_policy.json
 
   tags = {
-    Name    = "${local.resource_name}-kyverno-role"
+    Name    = "${local.resource_name}-kyverno-ecr-role"
     Env     = var.env
     Project = var.project
   }

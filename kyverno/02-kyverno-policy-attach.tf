@@ -1,33 +1,41 @@
 resource "aws_iam_policy" "kyverno_ecr_policy" {
   name        = "${local.resource_name}-kyverno-ecr-policy"
-  description = "Allow Kyverno to read /${var.project}/${var.env} ecr repos"
+  description = "Allow Kyverno to read Shopverse ECR repositories"
 
   policy = jsonencode({
     Version = "2012-10-17"
+
     Statement = [
 
+      # ======================================================
       # ECR Authentication
+      # ======================================================
       {
+        Sid    = "ECRAuthentication"
         Effect = "Allow"
+
         Action = [
           "ecr:GetAuthorizationToken"
         ]
+
         Resource = "*"
-        # Resource = "arn:aws:ssm:${var.region}:${local.aws_account_id}:parameter/${var.project}/${var.env}/*"
       },
 
+      # ======================================================
       # ECR Image Read Access
+      # ======================================================
       {
+        Sid    = "ECRImageRead"
         Effect = "Allow"
+
         Action = [
           "ecr:BatchGetImage",
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchCheckLayerAvailability"
         ]
-        Resource = "arn:aws:ecr:us-east-1:${local.aws_account_id}:repository:/shopverse/*"
-        # Resource = "arn:aws:ssm:${var.region}:${local.aws_account_id}:parameter/${var.project}/${var.env}/*"
-      }
 
+        Resource = "arn:aws:ecr:${var.region}:${local.aws_account_id}:repository/shopverse/*"
+      }
     ]
   })
 }

@@ -6,7 +6,7 @@ resource "aws_iam_policy" "kyverno_ecr_policy" {
     Version = "2012-10-17"
     Statement = [
 
-      # 🔐 ECR Access
+      # ECR Authentication
       {
         Effect = "Allow"
         Action = [
@@ -16,7 +16,7 @@ resource "aws_iam_policy" "kyverno_ecr_policy" {
         # Resource = "arn:aws:ssm:${var.region}:${local.aws_account_id}:parameter/${var.project}/${var.env}/*"
       },
 
-      # 🔐 ECR Access
+      # ECR Image Read Access
       {
         Effect = "Allow"
         Action = [

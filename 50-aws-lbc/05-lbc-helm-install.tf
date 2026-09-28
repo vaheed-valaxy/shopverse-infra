@@ -1,4 +1,5 @@
 # Install AWS Load Balancer Controller using HELM
+
 resource "helm_release" "loadbalancer_controller" {
   depends_on = [
     aws_iam_role.lbc_iam_role,

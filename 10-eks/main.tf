@@ -17,7 +17,7 @@ module "eks" {
 
   node_subnet_ids       = local.eks_node_subnet_ids
   node_instance_types   = ["t3.small"]
-  node_capacity_type    = "SPOT"        # ON_DEMAND/ SPOT
+  node_capacity_type    = "SPOT"        # ON_DEMAND / SPOT
   node_auto_scaler_tags = local.node_auto_scaler_tags
 
   # Cluster access from Bastion

@@ -12,5 +12,13 @@ terraform {
 }
 
 provider "aws" {
+  # AWS region to use for all resources (from variables)
   region = var.region
+
+  default_tags {
+    tags = {
+      Project     = "ecommerve"
+      Env         = "dev"
+      ManagedBy   = "Terraform"
+    }
 }

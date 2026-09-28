@@ -30,7 +30,7 @@ resource "helm_release" "kyverno" {
           create = true
 
           annotations = {
-            "eks.amazonaws.com/role-arn" = module.kyverno_irsa.role_arn
+            "eks.amazonaws.com/role-arn" = aws_iam_role.kyverno_ecr_role.arn
           }
         }
       }

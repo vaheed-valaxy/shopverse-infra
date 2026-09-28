@@ -13,7 +13,7 @@ module "eks" {
   cluster_subnet_ids               = local.eks_cluster_subnet_ids       # (since vpc outputs as list, so [] not required)
   cluster_endpoint_public_access   = false                              # Control plane public access
   cluster_endpoint_private_access  = true                               # Control plane to Node and vice versa communication
-  # cluster_addl_security_group_ids  = [module.vpc.bastion_host_sg_id]  # This is additional cluster SG and the default cluster SG is intact
+  # cluster_addl_security_group_ids  = [module.vpc.bastion_host_sg_id]  # This is additional cluster SG and the default cluster SG will be intact
 
   node_subnet_ids       = local.eks_node_subnet_ids
   node_instance_types   = ["t3.small"]

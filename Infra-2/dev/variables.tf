@@ -11,6 +11,5 @@ common_tags = {
   }
 
 # Bastion
-sg_name = "${var.project}-${var.env}-bastion-sg"
 variable "ami_id" {}
 variable "public_key_name" {}

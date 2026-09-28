@@ -17,8 +17,9 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Project     = "ecommerve"
+      Project     = "pharma"
       Env         = "dev"
-      ManagedBy   = "Terraform"
+      ManagedBy   = "terraform"
     }
+  }
 }

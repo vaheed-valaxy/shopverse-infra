@@ -16,4 +16,6 @@ locals {
     "kubernetes.io/role/internal-elb" = "1"
     "kubernetes.io/cluster/${local.eks_cluster_name}" = "owned"           # "shared"
   }
+
+  sg_name = "${var.project}-${var.env}-bastion-sg"
 }

@@ -1,5 +1,5 @@
 locals {
-   eks_cluster_name = data.terraform_remote_state.vpc.outputs.eks_cluster_name  
+   eks_cluster_name       = data.terraform_remote_state.vpc.outputs.eks_cluster_name  
    eks_cluster_subnet_ids = data.terraform_remote_state.vpc.outputs.private_subnet_ids
    eks_node_subnet_ids    = data.terraform_remote_state.vpc.outputs.private_subnet_ids
 

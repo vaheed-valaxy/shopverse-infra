@@ -33,5 +33,5 @@ locals {
   availability_zone      = module.vpc.availability_zones[0]
   shopverse_secret_json  = jsondecode(data.aws_secretsmanager_secret_version.shopverse_secret_value.secret_string)
   db_subnet_group_name   = "${local.resource_name}-mysql-rds-db-subnet-group"
-  vpc_security_group_ids = [data.terraform_remote_state.eks.outputs.cluster_security_group_id, data.terraform_remote_state.bastion.outputs.bastion_sg_id]
+  vpc_security_group_ids = [module.eks.cluster_security_group_id, module.bastion_sg.sg_id]
 }

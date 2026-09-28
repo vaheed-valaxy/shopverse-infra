@@ -3,7 +3,7 @@ locals {
   eks_cluster_subnet_ids = module.vpc.private_subnet_ids
   eks_node_subnet_ids    = module.vpc.private_subnet_ids
 
-  bastion_sg_id = module.bastion_sg.bastion_sg_id data.terraform_remote_state.bastion.outputs.bastion_sg_id
+  bastion_sg_id = module.bastion_sg.sg_id data.terraform_remote_state.bastion.outputs.bastion_sg_id
 
   common_tags = {
     Project     = var.project

@@ -13,7 +13,7 @@ resource "helm_release" "kyverno" {
   chart      = "kyverno"
   namespace  = "kyverno"
 
-  version = "3.9.0"   # Installs Kyverno 1.19.0
+  version = "3.9.1"   # Installs Kyverno 1.19.1
 
   create_namespace = true
 

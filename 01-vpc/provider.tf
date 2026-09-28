@@ -15,11 +15,11 @@ provider "aws" {
   # AWS region to use for all resources (from variables)
   region = var.region
 
-  default_tags {
-    tags = {
-      Project     = "pharma"
-      Env         = "dev"
-      ManagedBy   = "terraform"
-    }
-  }
+  # default_tags {
+  #   tags = {
+  #     Project     = "pharma"
+  #     Env         = "dev"
+  #     ManagedBy   = "terraform"
+  #   }
+  # }
 }

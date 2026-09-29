@@ -1,4 +1,5 @@
 terraform {
+
   # Minimum Terraform CLI version required
   # required_version = ">= 1.12.0"
 

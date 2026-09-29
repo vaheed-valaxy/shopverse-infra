@@ -4,9 +4,9 @@ module "s3" {
 
   s3_bucket_name = "shopverse-dev-tfstate"               # local.s3_bucket_name 
 
-  project        = var.project
-  env            = var.env
-  region         = var.region
+  project = var.project
+  env     = var.env
+  region  = var.region
 
-  common_tags    = local.common_tags
+  common_tags = local.common_tags
 }

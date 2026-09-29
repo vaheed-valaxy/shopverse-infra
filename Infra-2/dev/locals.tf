@@ -1,18 +1,18 @@
 locals {
   resource_name = "${var.project}-${var.env}"
 
-  eks_cluster_name       = "${local.resource_name}-eks-cluster"            # ecommerce-dev-eks-cluster
-  eks_cluster_subnet_ids = module.vpc.private_subnet_ids
-  eks_node_subnet_ids    = module.vpc.private_subnet_ids
-
-  bastion_sg_name = "${local.resource_name}-bastion-sg"
-  bastion_sg_id   = module.bastion_sg.sg_id
-
   common_tags = {
     Project     = var.project
     Environment = var.env
     Terraform   = "True"
   }
+
+  bastion_sg_name = "${local.resource_name}-bastion-sg"
+  bastion_sg_id   = module.bastion_sg.sg_id
+
+  eks_cluster_name       = "${local.resource_name}-eks-cluster"            # ecommerce-dev-eks-cluster
+  eks_cluster_subnet_ids = module.vpc.private_subnet_ids
+  eks_node_subnet_ids    = module.vpc.private_subnet_ids
 
   eks_vpc_public_subnet_tags = {
     "kubernetes.io/role/elb" = "1"
@@ -31,6 +31,7 @@ locals {
 
   aws_secret_name        = "/${var.project}/${var.env}/mysql-db-credentials"      # /shopverse/dev/mysql-db-credentials
 
+  # RDS Variables
   identifier             = "${local.resource_name}-mysql"
   availability_zone      = module.vpc.availability_zones[0]
   shopverse_secret_json  = jsondecode(data.aws_secretsmanager_secret_version.shopverse_secret_value.secret_string)

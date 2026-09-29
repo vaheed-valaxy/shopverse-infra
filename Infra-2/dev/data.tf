@@ -1,6 +1,6 @@
 # Use existing AWS Secrets Manager Secret (which is already created)
 data "aws_secretsmanager_secret" "shopverse_secret" {
-  name = var.aws_secret_name
+  name = local.aws_secret_name
 }
 
 data "aws_secretsmanager_secret_version" "shopverse_secret_value" {

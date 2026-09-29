@@ -4,12 +4,12 @@
 - backend - `shopverse-dev/backend`
 
 **QA:**
-- frontend - `shopverse-dev/frontend`
-- backend - `shopverse-dev/backend`
+- frontend - `shopverse-qa/frontend`
+- backend - `shopverse-qa/backend`
 
 **Prod:**
-- frontend - `shopverse-dev/frontend`
-- backend - `shopverse-dev/backend`
+- frontend - `shopverse/frontend`
+- backend - `shopverse/backend`
 
 ## OIDC - frontend
 - **Rolename:** `gha-shopverse-frontend-ecr-push`

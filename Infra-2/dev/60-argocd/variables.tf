@@ -3,4 +3,4 @@ variable "env"     { default = "dev" }
 variable "region"  { default = "us-east-1" }
 
 variable "remote_state_s3_bucket"     { default = "shopverse-dev-tfstate" }       # To read VPC and EKS output values
-variable "remote_state_s3_bucket_key" { default = "shopverse-eks-vpc/terraform.tfstate" }
+variable "remote_state_s3_bucket_key" { default = "shopverse-vpc-eks/terraform.tfstate" }

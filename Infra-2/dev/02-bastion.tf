@@ -42,10 +42,10 @@ module "bastion_ec2" {
   what_type_instance          = "Bastion"
 
   # user_data = file("${path.module}/mysql_client_8.sh")
-
-  depends_on = [ module.bastion_sg, aws_security_group_rule.bastion_ssh, aws_security_group_rule.bastion_argocd ]
  
   project      = var.project
   env          = var.env
   common_tags  = local.common_tags
+
+  depends_on = [ module.bastion_sg, aws_security_group_rule.bastion_ssh, aws_security_group_rule.bastion_argocd ]
 }

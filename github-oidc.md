@@ -1,6 +1,15 @@
-## Image Repos  
-- frontend - `shopverse/frontend`
-- backend - `shopverse/backend`
+## Image Repos 
+**Dev:**
+- frontend - `shopverse-dev/frontend`
+- backend - `shopverse-dev/backend`
+
+**QA:**
+- frontend - `shopverse-dev/frontend`
+- backend - `shopverse-dev/backend`
+
+**Prod:**
+- frontend - `shopverse-dev/frontend`
+- backend - `shopverse-dev/backend`
 
 ## OIDC - frontend
 - **Rolename:** `gha-shopverse-frontend-ecr-push`

@@ -23,7 +23,7 @@ terraform {
 }
 
 provider "aws" {
-  # AWS region to use for all resources (from variables)
+  # AWS region to use for all resources to be created in (from variables)
   region = var.region     # "us-east-1"
 
   # default_tags {

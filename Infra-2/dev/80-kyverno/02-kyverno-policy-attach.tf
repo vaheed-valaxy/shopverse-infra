@@ -34,7 +34,11 @@ resource "aws_iam_policy" "kyverno_ecr_policy" {
           "ecr:BatchCheckLayerAvailability"
         ]
 
-        Resource = "arn:aws:ecr:${var.region}:${local.aws_account_id}:repository/shopverse/*"
+        Resource = [
+          "arn:aws:ecr:${var.region}:${local.aws_account_id}:repository/shopverse-dev/*",
+          "arn:aws:ecr:${var.region}:${local.aws_account_id}:repository/shopverse-qa/*",
+          "arn:aws:ecr:${var.region}:${local.aws_account_id}:repository/shopverse/*"
+        ]
       }
     ]
   })

@@ -9,7 +9,6 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 6.0"   # "~> 5.0"
     }
-
   }
 
   # Remote Backend
@@ -20,6 +19,7 @@ terraform {
     # encrypt        = true
     use_lockfile   = true   # Enables native S3 state locking (Terraform 1.10+)
   }
+
 }
 
 provider "aws" {

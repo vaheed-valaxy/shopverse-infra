@@ -1,7 +1,7 @@
 # Common
 variable "project" {}
 variable "env" {}
-# variable "region" {}
+variable "region" {}
 
 # Bastion
 variable "ami_id" {}

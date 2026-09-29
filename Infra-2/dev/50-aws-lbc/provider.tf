@@ -36,5 +36,5 @@ terraform {
 }  # terraform end
 
 provider "aws" {
-  region = "us-east-1"   # var.region
+  region = var.region   # "us-east-1"
 }

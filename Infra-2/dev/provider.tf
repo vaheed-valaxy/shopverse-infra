@@ -13,7 +13,7 @@ terraform {
   # Remote Backend
   backend "s3" {
     bucket         = "shopverse-dev-tfstate"
-    key            = "shopverse-eks-vpc.tfstate"
+    key            = "shopverse-eks-vpc/terraform.tfstate"
     region         = "us-east-1"
     # encrypt        = true
     use_lockfile   = true   # Enables native S3 state locking (Terraform 1.10+)
@@ -31,15 +31,4 @@ provider "aws" {
   #     ManagedBy   = "terraform"
   #   }
   # }
-}
-
-provider "kubernetes" {
-  host                   = module.eks.cluster_endpoint
-  cluster_ca_certificate = base64decode(module.eks.cluster_ca)
-
-  exec {
-    api_version = "client.authentication.k8s.io/v1"    # v1beta1
-    command     = "aws"
-    args        = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
-  }
 }

@@ -29,7 +29,7 @@ locals {
     "k8s.io/cluster-autoscaler/${local.eks_cluster_name}" = "owned"
   }
 
-  aws_secret_name        = "/${var.project}/${var.env}/mysql-db-credentials"
+  aws_secret_name        = "/${var.project}/${var.env}/mysql-db-credentials"      # /shopverse/dev/mysql-db-credentials
 
   identifier             = "${local.resource_name}-mysql"
   availability_zone      = module.vpc.availability_zones[0]

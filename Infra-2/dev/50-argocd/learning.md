@@ -35,6 +35,10 @@ argocd version --client
 
 rm -f argocd-linux-amd64
 ```
+## ArgoCD Login
+```bash
+argocd login --port-forward --port-forward-namespace argocd --username admin --password fA28t1mIHpNg27D8 --plaintext
+```
 
 ```bash
 export ARGOCD_OPTS="--port-forward --port-forward-namespace argocd --plaintext"

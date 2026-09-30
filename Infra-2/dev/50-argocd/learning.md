@@ -21,3 +21,17 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
   -o jsonpath="{.data.password}" | base64 -d
 echo
 ```
+
+## ArgoCD cli installation  
+```bash
+VERSION=$(curl -L -s https://api.github.com/repos/argoproj/argo-cd/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
+
+curl -L -o argocd-linux-amd64 \
+  "https://github.com/argoproj/argo-cd/releases/download/${VERSION}/argocd-linux-amd64"
+
+sudo install -m 755 argocd-linux-amd64 /usr/local/bin/argocd
+
+argocd version --client
+
+rm -f argocd-linux-amd64
+```

@@ -36,10 +36,10 @@ resource "helm_release" "argocd" {
       value = "ClusterIP"                # LoadBalancer # ClusterIP # NodePort
     },
 
-    {
-      name  = "server.extraArgs[0]"
-      value = "--insecure"
-    },
+    # {
+    #   name  = "server.extraArgs[0]"
+    #   value = "--insecure"
+    # },
 
     {
       name  = "rbac.create"

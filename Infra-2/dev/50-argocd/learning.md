@@ -35,3 +35,15 @@ argocd version --client
 
 rm -f argocd-linux-amd64
 ```
+
+```bash
+export ARGOCD_OPTS="--port-forward --port-forward-namespace argocd --plaintext"
+echo 'export ARGOCD_OPTS="--port-forward --port-forward-namespace argocd --plaintext"' >> ~/.bashrc
+source ~/.bashrc
+
+argocd app list
+argocd cluster list
+
+argocd context
+```
+
